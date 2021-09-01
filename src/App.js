@@ -28,6 +28,11 @@ const handleText = (e) => {
 const handleSearch = () => {
   setSearch(text);
 }
+
+const filteredStudents = studentList.filter(student =>{
+  return student.name.toLowerCase().includes(search.toLocaleLowerCase())
+})
+
   return (
     <div className='App'>
 
@@ -40,7 +45,7 @@ const handleSearch = () => {
       <hr/>
       <input type="text" value={text} onChange={handleText} />
       <button onClick={handleSearch}>Search</button>
-      <List students = {studentList} />
+      <List students = {filteredStudents} />
     </div>
   )
 }
