@@ -10,6 +10,8 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [img, setImg] = useState();
   const [studentList, setStudentList] = useState([]);
+  const [text, setText] = useState('');
+  const [search, setSearch] = useState('');
 
 useEffect(() => {
   axios
@@ -19,6 +21,13 @@ useEffect(() => {
 
 },[])
 
+const handleText = (e) => {
+  setText(e.target.value);
+}
+
+const handleSearch = () => {
+  setSearch(text);
+}
   return (
     <div className='App'>
 
@@ -29,6 +38,8 @@ useEffect(() => {
       <button onClick= {()=> setImg (aws)} >AWS</button>
       <button onClick= {()=> setImg (0)} >Reset</button>
       <hr/>
+      <input type="text" value={text} onChange={handleText} />
+      <button onClick={handleSearch}>Search</button>
       <List students = {studentList} />
     </div>
   )
