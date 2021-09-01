@@ -1,11 +1,5 @@
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>React Hooks</h1>
-    </div>
-  );
-}
-
-export default App;
+import React from 'react';
+import Header from './components/Header';
+import List from './components/List';
+import fs from './assets/fs.png';
+import aws from './assets/fs.png';
