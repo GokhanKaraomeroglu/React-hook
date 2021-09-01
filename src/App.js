@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import Header from './components/Header';
 import List from './components/List';
 import fs from './assets/fs.png';
@@ -29,9 +29,9 @@ const handleSearch = () => {
   setSearch(text);
 }
 
-const filteredStudents = studentList.filter(student =>{
+const filteredStudents = useMemo(()=> studentList.filter(student =>{
   return student.name.toLowerCase().includes(search.toLocaleLowerCase())
-})
+}), [search, studentList])
 
   return (
     <div className='App'>
