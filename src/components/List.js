@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem";
-const List = ({ students, add }) => {
+const List = React.memo(({ students, add }) => {
   console.log("Rendering: List Comp!");
   return (
     <div className="list">
@@ -9,5 +9,5 @@ const List = ({ students, add }) => {
       })}
     </div>
   );
-};
+});
 export default List;
